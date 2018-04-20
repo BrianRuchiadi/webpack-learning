@@ -1,0 +1,14 @@
+- There are also plugins that make the webpack output easier to notice and understand:
+  
+    - case-sensitive-paths-webpack-plugin
+        - can be handy when you are developing on case-insensitive environment like
+          macOS or Windows but using case-sensitive environment like Linux for production
+    - npm-install-webpack-plugin 
+        - allows webpack to install and wire the installed packages with your package.json
+          as you import new packages to your project.
+    - react-dev-utils
+        - contains webpack utilities developed for Create React App. Despite its name, 
+          they can find use beyond React. If you want only webpack message formatting,
+          consider webpack-format-messages.
+    - start-server-webpack-plugin
+        - is able to start your server after webpack build completes.

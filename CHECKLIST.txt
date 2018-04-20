@@ -1,0 +1,8 @@
+- able to generate favicons dynamically 
+    - npm i --save favicons-webpack-plugin
+    - setup configuration on webpack.config.js
+
+- dev server configuration (WDS)
+    - show error only,
+    - overlay: true, to show error in browser
+    - polling instead of watching file

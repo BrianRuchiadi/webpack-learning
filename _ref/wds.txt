@@ -1,0 +1,59 @@
+Webpack Development Server
+
+    - To get started :
+        - npm install webpack-dev-server --save-dev
+        - define npm script to run it.
+            - "start" : "webpack-dev-server --mode development"
+    
+    - Benefits:
+        - Auto hard refresh
+        - Auto read the modified code and then perform hard refresh after changes detected
+
+    - Configurations:
+        module.exports = {
+            devServer: {
+                // Display only errors to reduce the amount of output.
+                stats: "errors-only",
+
+                // Parse host and port from env to allow customization.
+                //
+                // If you use Docker, Vagrant or Cloud9, set
+                // host: options.host || "0.0.0.0";
+                //
+                // 0.0.0.0 is available to all network devices
+                // unlike default `localhost`.
+                host: process.env.HOST, // Defaults to `localhost`
+                port: process.env.PORT, // Defaults to 8080
+                open: true, // Open the page in browser
+
+                overlay: true,
+            },
+
+            ...
+        };
+
+    - Polling instead of watching files
+        Sometimes the file watching setup provided by WDS won't work on your system.
+        It can be problematic on older versions of Windows, Ubuntu, Vagrant, and Docker.
+        Enabling polling is a good option then:
+        
+            const path = require("path");
+
+            module.exports = {
+            devServer: {
+                watchOptions: {
+                // Delay the rebuild after the first change
+                aggregateTimeout: 300,
+
+                // Poll using interval (in ms, accepts boolean too)
+                poll: 1000,
+                },
+            },
+            plugins: [
+                // Ignore node_modules so CPU usage with poll
+                // watching drops significantly.
+                new webpack.WatchIgnorePlugin([
+                path.join(__dirname, "node_modules")
+                ]),
+            ],
+            };
