@@ -1,8 +1,30 @@
-- able to generate favicons dynamically 
-    - npm i --save favicons-webpack-plugin
-    - setup configuration on webpack.config.js
+All the concepts and techniques are based on https://survivejs.com/webpack/, and webpack
+official documentation. This repo uses Webpack v.4 and above.
 
-- dev server configuration (WDS)
-    - show error only,
-    - overlay: true, to show error in browser
-    - polling instead of watching file
+File Structure:
+    For now, the webpack folders consist of three sub folders:
+        - Common, for shareable components regardless of environment
+        - Development, for development specific components
+        - Production, for production specific components
+
+Current capabilities:
+    - HTML:
+        - Able to generate favicons for different browsers (webpack/common/webpack.favicons.js)
+        - Able to generate HTML dynamically (webpack/common/webpack.html-webpack.js)
+    - Development:
+        - Notifications :
+            - Able to notify user by utilizing windows/mac notification to indicate build status. (webpack/common/notifications/webpack.notifier.js)
+            - Able to notify user by ringing the OS sounds to make error more noticeable (webpack/common/notifications/webpack.system-bell.js)
+        - Error Overlay :
+            - Error to be shown on browser (webpack/common/webpack.error-overlay)
+
+    - Webpack Development Server (WDS)
+        - WDS works with the capabilities to initiate hard refresh on changes detected.
+          Of course, there is HMR (Hot Module Replacement) to show changes without hard refresh.
+          WDS utilize watch mode by default. WDS also allows to host file in memory.
+          (webpack/development/webpack.devServer.js)
+
+Next milestones:
+    - Styles (CSS related)
+
+Requested Features (Features that needs to be discovered):
