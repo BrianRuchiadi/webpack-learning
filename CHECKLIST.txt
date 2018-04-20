@@ -23,6 +23,13 @@ Current capabilities:
           Of course, there is HMR (Hot Module Replacement) to show changes without hard refresh.
           WDS utilize watch mode by default. WDS also allows to host file in memory.
           (webpack/development/webpack.devServer.js)
+    
+    - Automatic detection of configuration file changes
+        - Often times we need to ctrl + c and then run script again when editing .env,
+          webpack config to show reflected changes. Instead, we can utilize nodemon plugin, 
+          that help us monitor changes in node, and update it. Good to pair with WDS.
+          (package.json command) 
+          
 
 Next milestones:
     - Styles (CSS related)
