@@ -1,0 +1,22 @@
+In this part, you will learn about styling-related concerns in detail including loading styles,
+refreshing styles during development, seperating CSS, eliminating unused CSS, and autoprefixing
+
+Loading CSS:
+    - To load CSS, you need to use css-loader and style-loader.
+
+css-loader:
+    - css-loader goes through possible @import and url() lookups within the matched files
+      and treats them as a regular ES2015 (ES6) import. css-loader will skip if the @import
+      points to an external resource, as only internal resources are processed.
+
+style-loader:
+    - style-loader injects the styling through a style element. The way it does this can be
+      customized. It also implements the Hot Module Replacement (HMR) interface providing 
+      for a pleasant development experience.
+
+ExtractTextPlugin:
+    - Since inlining CSS isn't a good idea for production usage, it makes sense to use 
+      ExtractTextPlugin to generate a seperate CSS file. 
+
+The matched files can be processed through loaders like file-loader or url-loader, and these
+possibilities are discussed in the Loading Assets part of the book.
