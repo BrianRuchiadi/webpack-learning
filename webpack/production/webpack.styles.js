@@ -1,4 +1,6 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const PurifyCssPlugin = require('./../common/styles/webpack.purify-css')
+
 
 exports.styles = ({ include, exclude} = {}) => {
     const ExtractTextSetup = new ExtractTextPlugin({
@@ -39,7 +41,8 @@ exports.styles = ({ include, exclude} = {}) => {
         ],
       },
       plugins: [
-        ExtractTextSetup
+        ExtractTextSetup,
+        ...PurifyCssPlugin.plugins
       ]
     }
   };
