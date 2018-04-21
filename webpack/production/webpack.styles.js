@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PurifyCssPlugin = require('./../common/styles/webpack.purify-css')
+const AutoPrefixer = require('./../common/styles/webpack.autoprefixer')
 
 exports.styles = ({ include, exclude} = {}) => {
     const ExtractTextSetup = new ExtractTextPlugin({
@@ -33,7 +34,8 @@ exports.styles = ({ include, exclude} = {}) => {
                 },
                 {
                   loader: "sass-loader"
-                }
+                },
+                AutoPrefixer.autoprefixer()
               ]
             })
           },
