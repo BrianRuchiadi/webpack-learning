@@ -8,6 +8,11 @@ module.exports = {
         new PurifyCSSPlugin({
             // Give paths to parse for rules. These should be absolute! 
             paths: Glob.sync(Path.join(__dirname, './../../../dist/*.html')),
+            purifyOptions: {
+                minify: true,
+                info: true,
+                rejected: true
+            }
         })
     ]
 }

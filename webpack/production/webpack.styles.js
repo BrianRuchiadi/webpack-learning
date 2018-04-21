@@ -1,7 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PurifyCssPlugin = require('./../common/styles/webpack.purify-css')
 
-
 exports.styles = ({ include, exclude} = {}) => {
     const ExtractTextSetup = new ExtractTextPlugin({
       allChunks: true,
