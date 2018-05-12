@@ -1,0 +1,39 @@
+Sean Larkin Mastering Webpack From The Inside Out : Everything is the Plugin
+
+- What is Tapable?
+    - 200 line plugin library
+    - The backbone of the plugin system
+    - Tapable Instance (Something you can plug into)
+        - A class / object that extends Tapable
+
+    - Compiler / Central Engine 
+        - Exposed via Node API
+        - Central Dispatch
+        - Start / Stop
+
+    - Compilation / The Dependency Graph (The Brain)
+        - Created by the Compiler
+        - Contains Dependency Graph Traversal Algorithm
+
+    - The Resolver / The bloodhound
+        - Finding the files
+
+    - The Module Factory
+        - Takes successfully resolved requests
+        - Collects source for that file. Create a module object
+
+    - Parser / Abstract Syntax Trees
+        - Parses
+        - Takes a module Object and turns into AST to parse
+        - Find all require ? imports, create DEPENDENCY'S
+
+        - so now, inside module object, we have dependencies.
+    
+    * If it is not JavaScript, loaders gonna change it to JavaScript
+    
+    - Template
+        - Data binding for your modules
+        - Creates the code you actually see in output bundle
+
+        
+        
