@@ -1,10 +1,15 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-module.exports = {
+exports.config = new ExtractTextPlugin({
+    allChunks: true,
+    filename: "[name].css"
+})
+
+exports.plugins = {
     plugins: [
         new ExtractTextPlugin({
             allChunks: true,
             filename: "[name].css"
-          })
+        })
     ]
 }

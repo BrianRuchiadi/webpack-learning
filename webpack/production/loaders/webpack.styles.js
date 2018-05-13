@@ -1,21 +1,10 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const PurifyCssPlugin = require('./../common/styles/webpack.purify-css')
-const AutoPrefixer = require('./../common/styles/webpack.autoprefixer')
-
-exports.styles = ({ include, exclude} = {}) => {
-    const ExtractTextSetup = new ExtractTextPlugin({
-      allChunks: true,
-      filename: "[name].css"
-    })
-
+exports.styles = (ExtractTextSetup) => {
     return {
       module: {
         rules: [
           {
             test: /\.(s*)css$/,
-            include,
-            exclude,
-    
+            exclude: /node_modules/,
             use: ExtractTextSetup.extract({
               fallback: "style-loader",
               use: [
@@ -34,16 +23,11 @@ exports.styles = ({ include, exclude} = {}) => {
                 },
                 {
                   loader: "sass-loader"
-                },
-                AutoPrefixer.autoprefixer()
+                }
               ]
             })
           },
         ],
-      },
-      plugins: [
-        ExtractTextSetup,
-        ...PurifyCssPlugin.plugins
-      ]
+      }
     }
   };
